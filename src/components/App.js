@@ -11,7 +11,6 @@ class App extends React.Component {
 
   static propTypes = {
     match: PropTypes.object.isRequired,
-
   }
 
   constructor() {
