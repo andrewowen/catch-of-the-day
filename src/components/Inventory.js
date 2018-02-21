@@ -1,7 +1,16 @@
-import React from 'react';
-import AddFishForm from './AddFishForm';
+import React from 'react'
+import PropTypes from 'prop-types'
+import AddFishForm from './AddFishForm'
 
 class Inventory extends React.Component {
+  static propTypes = {
+    fishes: PropTypes.object.isRequired,
+    addFish: PropTypes.func.isRequired,
+    updateFish: PropTypes.func.isRequired,
+    removeFish: PropTypes.func.isRequired,
+    loadSamples: PropTypes.func.isRequired,
+  }
+
   constructor() {
     super()
     this.renderInventory = this.renderInventory.bind(this)
@@ -12,36 +21,67 @@ class Inventory extends React.Component {
     const fish = this.props.fishes[key]
     const updatedFish = {
       ...fish,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }
     this.props.updateFish(key, updatedFish)
   }
 
   renderInventory(key) {
     const fish = this.props.fishes[key]
-    return(
+    return (
       <div className="fish-edit" key={key}>
-        <input type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e)=> this.handleChange(e, key)}/>
-        <input type="text" name="price" value={fish.price} placeholder="Fish Price" onChange={(e) => this.handleChange(e, key)}/>
-        <select type="text" name="status" value={fish.status} placeholder="Fish Status" onChange={(e) => this.handleChange(e, key)}>
+        <input
+          type="text"
+          name="name"
+          value={fish.name}
+          placeholder="Fish Name"
+          onChange={e => this.handleChange(e, key)}
+        />
+        <input
+          type="text"
+          name="price"
+          value={fish.price}
+          placeholder="Fish Price"
+          onChange={e => this.handleChange(e, key)}
+        />
+        <select
+          type="text"
+          name="status"
+          value={fish.status}
+          placeholder="Fish Status"
+          onChange={e => this.handleChange(e, key)}
+        >
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)}/>
-        <input type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)}/>
+        <textarea
+          type="text"
+          name="desc"
+          value={fish.desc}
+          placeholder="Fish Desc"
+          onChange={e => this.handleChange(e, key)}
+        />
+        <input
+          type="text"
+          name="image"
+          value={fish.image}
+          placeholder="Fish Image"
+          onChange={e => this.handleChange(e, key)}
+        />
+        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
       </div>
     )
-  } 
+  }
   render() {
     return (
       <div>
         <h2>Inventory</h2>
         {Object.keys(this.props.fishes).map(this.renderInventory)}
         <AddFishForm addFish={this.props.addFish} />
-        <button onClick={this.props.loadSamples}  >Load Sample Fishes</button>
+        <button onClick={this.props.loadSamples}>Load Sample Fishes</button>
       </div>
-    );
+    )
   }
 }
 
-export default Inventory;
+export default Inventory
