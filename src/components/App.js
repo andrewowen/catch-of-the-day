@@ -9,7 +9,7 @@ import base from '../base'
 
 class App extends React.Component {
   static propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
   }
 
   constructor() {
@@ -22,7 +22,7 @@ class App extends React.Component {
     this.removeFromOrder = this.removeFromOrder.bind(this)
     this.state = {
       fishes: {},
-      order: {}
+      order: {},
     }
   }
 
@@ -30,11 +30,11 @@ class App extends React.Component {
     const { params } = this.props.match
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
-      state: 'fishes'
+      state: 'fishes',
     })
     this.ref = base.syncState(`${params.storeId}/order`, {
       context: this,
-      state: 'order'
+      state: 'order',
     })
   }
 
@@ -66,7 +66,7 @@ class App extends React.Component {
 
   loadSamples() {
     this.setState({
-      fishes: sampleFishes
+      fishes: sampleFishes,
     })
   }
 
@@ -91,7 +91,7 @@ class App extends React.Component {
         <div className="menu">
           <Header tagline="Fresh Seafood Market" />
           <ul className="list-of-fishes">
-            {Object.keys(this.state.fishes).map(key => (
+            {Object.keys(this.state.fishes).map((key) => (
               <Fish
                 key={key}
                 fishKey={key}

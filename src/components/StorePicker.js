@@ -6,10 +6,10 @@ class StorePicker extends React.Component {
   storeInput = React.createRef()
 
   static propTypes = {
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
   }
 
-  goToStore = event => {
+  goToStore = (event) => {
     event.preventDefault()
     console.log('You Changed the URL')
     // first grab the text from the box
@@ -21,7 +21,7 @@ class StorePicker extends React.Component {
   render() {
     // Any where else
     return (
-      <form className="store-selector" onSubmit={e => this.goToStore(e)}>
+      <form className="store-selector" onSubmit={(e) => this.goToStore(e)}>
         <h2>Please Enter A Store</h2>
         <input
           type="text"
