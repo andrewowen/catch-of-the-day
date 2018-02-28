@@ -26,12 +26,13 @@ class App extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`, {
+  componentDidMount() {
+    const { params } = this.props.match
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: 'fishes',
     })
-    this.ref = base.syncState(`${this.props.match.params.storeId}/order`, {
+    this.ref = base.syncState(`${params.storeId}/order`, {
       context: this,
       state: 'order',
     })
@@ -90,12 +91,21 @@ class App extends React.Component {
         <div className="menu">
           <Header tagline="Fresh Seafood Market" />
           <ul className="list-of-fishes">
-            {Object.keys(this.state.fishes).map(key => (
-              <Fish key={key} fishKey={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />
+            {Object.keys(this.state.fishes).map((key) => (
+              <Fish
+                key={key}
+                fishKey={key}
+                details={this.state.fishes[key]}
+                addToOrder={this.addToOrder}
+              />
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           fishes={this.state.fishes}
           addFish={this.addFish}
