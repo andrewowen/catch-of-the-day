@@ -1,4 +1,5 @@
 **.eslintrc
+**.prettierrc
 **.vscode/
 
 **node_modules/
