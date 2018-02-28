@@ -3,18 +3,20 @@ import PropTypes from "prop-types";
 import { getFunName } from "../helpers";
 
 class StorePicker extends React.Component {
+  storeInput = React.createRef();
+
   static propTypes = {
     history: PropTypes.object.isRequired
   };
 
-  goToStore(event) {
+  goToStore = event => {
     event.preventDefault();
     console.log("You Changed the URL");
     // first grab the text from the box
-    const storeId = this.storeInput.value;
+    const storeId = this.storeInput.value.value;
     // second we're going to transition from / to /store/:storeId
     this.props.history.push(`/store/${storeId}`);
-  }
+  };
 
   render() {
     // Any where else
@@ -26,9 +28,7 @@ class StorePicker extends React.Component {
           required
           placeholder="Store Name"
           defaultValue={getFunName()}
-          ref={input => {
-            this.storeInput = input;
-          }}
+          ref={this.storeInput}
         />
         <button type="submit">Visit Store →</button>
       </form>
