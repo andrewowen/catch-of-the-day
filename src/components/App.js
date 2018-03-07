@@ -8,22 +8,22 @@ import sampleFishes from '../sample-fishes.js'
 import base from '../base'
 
 class App extends React.Component {
+  state = {
+    fishes: {},
+    order: {},
+  }
+
   static propTypes = {
     match: PropTypes.object.isRequired,
   }
 
   constructor() {
     super()
-    this.addFish = this.addFish.bind(this)
     this.updateFish = this.updateFish.bind(this)
     this.removeFish = this.removeFish.bind(this)
     this.loadSamples = this.loadSamples.bind(this)
     this.addToOrder = this.addToOrder.bind(this)
     this.removeFromOrder = this.removeFromOrder.bind(this)
-    this.state = {
-      fishes: {},
-      order: {},
-    }
   }
 
   componentDidMount() {
@@ -42,7 +42,7 @@ class App extends React.Component {
     base.removeBinding(this.ref)
   }
 
-  addFish(fish) {
+  addFish = (fish) => {
     // take a copy of fishes state
     const fishes = { ...this.state.fishes }
     // create unique id using Date.now
