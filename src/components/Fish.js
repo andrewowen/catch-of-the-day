@@ -9,7 +9,7 @@ class Fish extends React.Component {
     fishKey: PropTypes.string.isRequired,
   }
   render() {
-    const { details, addToOrder, fishKey } = this.props
+    const { details, addToOrder, index } = this.props
     const isAvailable = details.status === 'available'
     const buttonText = isAvailable ? 'Add To Order' : 'Sold Out!'
     return (
@@ -20,7 +20,7 @@ class Fish extends React.Component {
           <span className="price">{formatPrice(details.price)}</span>
         </h3>
         <p>{details.desc}</p>
-        <button onClick={() => addToOrder(fishKey)} disabled={!isAvailable}>
+        <button onClick={() => addToOrder(index)} disabled={!isAvailable}>
           {buttonText}
         </button>
       </li>
