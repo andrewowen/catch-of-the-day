@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body class="amber lighten-5">
     <div>
         <div class="container">
@@ -16,13 +18,14 @@
                 <div class="divider"></div>
                 <div class="section">
                     <p>
-                        This page exists simply to document my learning progress through Wes Bos' tutorial "Catch of the Day".
-                        As I complete videos, I'll mark the video finished below!
+                        This page exists simply to document my learning progress through Wes Bos' tutorial "Catch of the Day". As I complete videos,
+                        I'll mark the video finished below!
                     </p>
-                    <p>If you want to do the course yourself, you can purchase it <a href="https://reactforbeginners.com/">here</a>!</p>
+                    <p>If you want to do the course yourself, you can purchase it
+                        <a href="https://reactforbeginners.com/">here</a>!</p>
                     <div id="status"></div>
                     <div class="progress" style="height: 15px;">
-                        <div class="determinate"style="background-color: green"></div>
+                        <div class="determinate" style="background-color: green"></div>
                     </div>
                     <a href="https://github.com/andrewowen/catch-of-the-day" class="btn btn-default">
                         < Back to Github</a>
@@ -31,11 +34,13 @@
                 <div class="section">
                     <div class="row">
                         <div class="col s12">
-                           <div class="collection">
+                            <div class="collection">
                                 <div class="collection-item pulse">
-                                   <span class="valign">1. Introduction, Tooling, and Setup</span>
-                                   <span class="badge hide-on-small-only green white-text lighten-2">Done!</span>
-                                   <span class="hide-on-med-and-up" style="float: right"><i class="small material-icons" style="color: #81C784">beenhere</i></span>
+                                    <span class="valign">1. Introduction, Tooling, and Setup</span>
+                                    <span class="badge hide-on-small-only green white-text lighten-2">Done!</span>
+                                    <span class="hide-on-med-and-up" style="float: right">
+                                        <i class="small material-icons" style="color: #81C784">beenhere</i>
+                                    </span>
                                 </div>
                                 <div class="collection-item pulse">
                                     <span class="valign">2. Thinking & Understanding React Components</span>
@@ -179,6 +184,10 @@
                                 </div>
                                 <div class="collection-item pulse">
                                     <span class="valign">22. Animating React Components</span>
+                                    <span class="badge hide-on-small-only green white-text lighten-2">Done!</span>
+                                    <span class="hide-on-med-and-up" style="float: right">
+                                        <i class="small material-icons" style="color: #81C784">beenhere</i>
+                                    </span>
                                 </div>
                                 <div class="collection-item pulse">
                                     <span class="valign">23. Component Validation with PropTypes</span>
@@ -204,7 +213,7 @@
                                 <div class="collection-item pulse">
                                     <span class="valign">30. Ejecting from create-react-app</span>
                                 </div>
-                           </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -215,10 +224,11 @@
 <script>
     var listDone = document.getElementsByClassName("badge hide-on-small-only")
     var progressBar = document.getElementsByClassName("determinate")[0];
-    var progress  = listDone.length / 30 * 100
+    var progress = listDone.length / 30 * 100
     progressBar.style.width = listDone.length / 30 * 100 + "%"
 
     const statusText = document.getElementById("status");
     statusText.innerHTML = `So far, I've completed <b>${progress.toFixed(0)}%</b> of the course`
 </script>
+
 </html>
