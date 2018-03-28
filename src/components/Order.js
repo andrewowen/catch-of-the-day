@@ -9,20 +9,19 @@ class Order extends React.Component {
     removeFromOrder: PropTypes.func.isRequired,
   }
 
-  constructor() {
-    super()
-    this.renderOrder = this.renderOrder.bind(this)
-  }
-
-  renderOrder(key) {
+  renderOrder = (key) => {
     const fish = this.props.fishes[key]
     const count = this.props.order[key]
-    const removeButton = <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+    const isAvailable = fish.status === 'available'
+    const removeButton = (
+      <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+    )
 
-    if (!fish || fish.status === 'unavailable') {
+    if (!isAvailable) {
       return (
         <li key={key}>
-          Sorry! {fish ? fish.name : 'fish'} is no longer available! {removeButton}
+          Sorry! {fish ? fish.name : 'fish'} is no longer available!{' '}
+          {removeButton}
         </li>
       )
     }

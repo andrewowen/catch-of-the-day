@@ -6,7 +6,7 @@ class Fish extends React.Component {
   static propTypes = {
     details: PropTypes.object.isRequired,
     addToOrder: PropTypes.func.isRequired,
-    fishKey: PropTypes.string.isRequired,
+    index: PropTypes.string.isRequired,
   }
   render() {
     const { details, addToOrder, index } = this.props
