@@ -1,16 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class EditFishForm extends React.Component {
+  static propTypes = {
+    index: PropTypes.string.isRequired,
+    fish: PropTypes.object.isRequired,
+    updateFish: PropTypes.func.isRequired,
+    removeFish: PropTypes.func.isRequired,
+  }
+
   handleChange = (event) => {
-    const { index } = this.props
+    const { index, fish, updateFish } = this.props
     const updatedFish = {
-      ...this.props.fish,
+      ...fish,
       [event.currentTarget.name]: event.currentTarget.value,
     }
-    this.props.updateFish(index, updatedFish)
+    updateFish(index, updatedFish)
   }
   render() {
-    const { fish } = this.props
+    const { index, fish, removeFish } = this.props
     return (
       <div className="fish-edit">
         <input
@@ -51,9 +59,7 @@ class EditFishForm extends React.Component {
           placeholder="Fish Image"
           onChange={this.handleChange}
         />
-        <button onClick={() => this.props.removeFish(this.props.index)}>
-          Remove Fish
-        </button>
+        <button onClick={() => removeFish(index)}>Remove Fish</button>
       </div>
     )
   }

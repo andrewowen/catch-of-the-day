@@ -8,24 +8,26 @@ class Inventory extends React.Component {
     fishes: PropTypes.object.isRequired,
     addFish: PropTypes.func.isRequired,
     updateFish: PropTypes.func.isRequired,
+    removeFish: PropTypes.func.isRequired,
     loadSamples: PropTypes.func.isRequired,
   }
 
   render() {
+    const { fishes, addFish, updateFish, removeFish, loadSamples } = this.props
     return (
       <div>
         <h2>Inventory</h2>
-        {Object.keys(this.props.fishes).map((key) => (
+        {Object.keys(fishes).map((key) => (
           <EditFishForm
             key={key}
             index={key}
-            fish={this.props.fishes[key]}
-            updateFish={this.props.updateFish}
-            removeFish={this.props.removeFish}
+            fish={fishes[key]}
+            updateFish={updateFish}
+            removeFish={removeFish}
           />
         ))}
-        <AddFishForm addFish={this.props.addFish} />
-        <button onClick={this.props.loadSamples}>Load Sample Fishes</button>
+        <AddFishForm addFish={addFish} />
+        <button onClick={loadSamples}>Load Sample Fishes</button>
       </div>
     )
   }
