@@ -9,7 +9,7 @@ const Router = () => (
     <div>
       <Switch>
         <Route exact path="/catch-of-the-day/" component={StorePicker} />
-        <Route path="/store/:storeId" component={App} />
+        <Route path="/catch-of-the-day/store/:storeId" component={App} />
         <Route component={NotFound} />
       </Switch>
     </div>

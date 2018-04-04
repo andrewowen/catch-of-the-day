@@ -16,14 +16,14 @@ class StorePicker extends React.Component {
     // first grab the text from the box
     const storeId = this.storeInput.value.value
     // second we're going to transition from / to /store/:storeId
-    history.push(`/store/${storeId}`)
+    history.push(`/catch-of-the-day/store/${storeId}`)
   }
 
   render() {
     // Any where else
     return (
       <form className="store-selector" onSubmit={(e) => this.goToStore(e)}>
-        <h2>Please Enter A Store</h2>
+        <h2>Please Enter A Store :1</h2>
         <input
           type="text"
           required
