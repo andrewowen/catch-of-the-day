@@ -82,6 +82,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { storeId } = this.props.match.params
     return (
       <div className="catch-of-the-day">
         <div className="menu">
@@ -108,6 +109,7 @@ class App extends React.Component {
           removeFish={this.removeFish}
           updateFish={this.updateFish}
           loadSamples={this.loadSamples}
+          storeId={storeId}
         />
       </div>
     )
